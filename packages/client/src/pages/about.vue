@@ -74,7 +74,7 @@
 		<XFederation/>
 	</MkSpacer>
 	<MkSpacer v-else-if="tab === 'charts'" :content-max="1000" :margin-min="20">
-		<MkInstanceStats :chart-limit="500" :detailed="true"/>
+		<MkInstanceStats v-if="$i != null" :chart-limit="500" :detailed="true"/>
 	</MkSpacer>
 </MkStickyContainer>
 </template>
@@ -94,6 +94,7 @@ import * as os from '@/os';
 import number from '@/filters/number';
 import { i18n } from '@/i18n';
 import { definePageMetadata } from '@/scripts/page-metadata';
+import { $i } from '@/account';
 
 const props = withDefaults(defineProps<{
 	initialTab?: string;
